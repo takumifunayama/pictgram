@@ -3,7 +3,7 @@ class Topic < ApplicationRecord
   validates :description, presence: true
   validates :image, presence: true
   
-  belongs_to :user_params
+  belongs_to :user
   
   mount_uploader :image,ImageUploader
 end
