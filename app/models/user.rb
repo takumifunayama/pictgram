@@ -6,6 +6,8 @@ class User < ApplicationRecord
     #validates :password, format:{with:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i}
     
     has_many :topics
+    has_many :favorites
+    has_many :favorite_topics, through: :favorites,source:'topic'
     
     has_secure_password
 end

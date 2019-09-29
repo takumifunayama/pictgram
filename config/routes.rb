@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   delete  '/logout',  to: 'sessions#destroy'
   resources :users
   resources :topics
+  
+  get 'favorites/index'
+  post '/favorites', to: 'favorites#create'
 end
