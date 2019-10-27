@@ -11,7 +11,7 @@ class FavoritesController < ApplicationController
   if favorite.save
     redirect_to topics_path,success: 'お気に入りに登録しました'
   else
-    redirect_to topics_path,danger: 'お気に入りに登録にしました'
+    redirect_to topics_path,danger: 'お気に入りの登録に失敗しました'
   end
   end
 end

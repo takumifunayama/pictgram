@@ -13,7 +13,11 @@
                             <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
                         <% end %>
                     <% end %>
-                    <%= image_tag 'icons/comment.png',class: 'topic-index-icon' %>
+                    
+                    <%= link_to  posts_path do %>
+                        <%= image_tag 'icons/comment.png',class: 'topic-index-icon' %>
+                　　<% end %>
+                    
                     <p class="topic-text">
                         <%= topic.description %>
                     </p>
