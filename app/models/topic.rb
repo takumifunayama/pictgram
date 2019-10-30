@@ -9,4 +9,7 @@ class Topic < ApplicationRecord
   
   has_many :favorites
   has_many :favorite_users, through: :favorites, source: 'user'
+  
+  has_many :posts, dependent: :destroy
+  has_many :post_users, through: :posts, source: 'user'
 end

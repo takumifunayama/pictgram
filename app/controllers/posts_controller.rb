@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
     @post = Post.new
     @topic_id = params[:topic_id]
   end
@@ -10,18 +9,15 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(post_params)
+    @post = Post.new
+    @post.topic_id = params[:topic_id]
+    @post.content = params[:content]
+    
     if  @post.save
-      
-      redirect_to posts_path,success: '投稿に成功しました'
+      redirect_to topics_path,success: 'コメントに成功しました'
     else
-      flash.now[:danger] = "投稿に失敗しました"
-      render :index
+      flash.now[:danger] = "コメントに失敗しました"
+      render :new
     end
-  end
-  
-  private
-  def post_params
-    params.require(:post).permit(:content)
   end
 end
