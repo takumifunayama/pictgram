@@ -1,7 +1,6 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.all.includes(:favorite_users)
-    @user = User.find_by(id: @post.user_id)
     @posts = Post.where(topic_id: params[:topic_id])
   end
   
