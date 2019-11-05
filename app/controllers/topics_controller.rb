@@ -18,6 +18,13 @@ class TopicsController < ApplicationController
     end
   end
   
+  def destroy
+    @favorite = Favorite.find_by(user_id: @current_user.id, topic_id: params[:topic_id])
+    @favorite.destroy if favorite.present?
+    redirect_to topics_path, success: 'お気に入りを取り消しました'
+    #redirect_to("/topics/#{params[:topic_id]}")
+  end
+  
   private
   def topic_params
     params.require(:topic).permit(:image,:description)
