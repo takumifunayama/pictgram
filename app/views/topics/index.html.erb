@@ -24,8 +24,8 @@
                    <% end %>
                     <p class="topic-text">
                         <h3><%= topic.description %></h3>
-                        <% @posts.each do |post| %>
-                        <%= post.user_id %><br>
+                        <% topic.posts.each do |post| %>
+                        <%= post.user.name %><br>
                         <%= post.content %>
                         <p>--------------------</p>
                         <% end %>
